@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://d33hx60uijy1x"]
+[gd_scene load_steps=6 format=3 uid="uid://d33hx60uijy1x"]
 
 [ext_resource type="Script" path="res://scenes/track_cards/track_card.gd" id="1_rdguf"]
 [ext_resource type="Texture2D" uid="uid://cfqi6xmb177dp" path="res://sprites/track_cards/track_cards_atlas.png" id="1_yirfu"]
 [ext_resource type="Resource" uid="uid://cle840njjjoch" path="res://data/track_cards/track_card_01.tres" id="2_35b40"]
+[ext_resource type="Script" path="res://scripts/components/drag_and_drop.gd" id="4_gb8qg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ob0"]
 size = Vector2(30, 62)
 
 [node name="TrackCard" type="Area2D"]
+z_index = 1
 script = ExtResource("1_rdguf")
 stats = ExtResource("2_35b40")
 
@@ -20,3 +22,7 @@ region_rect = Rect2(0, 0, 32, 64)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 32)
 shape = SubResource("RectangleShape2D_j0ob0")
+
+[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_gb8qg")
+target = NodePath("..")

@@ -6,7 +6,6 @@ extends Node2D
 @export var camera_top_limit: int
 @export var camera_bottom_limit: int
 
-
 var previous_position: Vector2 = Vector2(0, 0)
 var is_dragging := false
 

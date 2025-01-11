@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://bi5wtv5ehcdpi"]
 
 [ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://sprites/background/background_tile.png" id="1_kwwue"]
-[ext_resource type="Script" path="res://scripts/components/camera/camera_zoom.gd" id="2_lvn2p"]
+[ext_resource type="Script" path="res://scripts/camera/components/camera_drag.gd" id="3_vw24h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -22,6 +22,10 @@ tile_set = SubResource("TileSet_bu3tp")
 position = Vector2(480, 270)
 zoom = Vector2(2, 2)
 
-[node name="CameraZoom" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
-script = ExtResource("2_lvn2p")
+[node name="CameraDrag" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("3_vw24h")
 camera = NodePath("..")
+camera_left_limit = 400
+camera_right_limit = 720
+camera_top_limit = 135
+camera_bottom_limit = 409

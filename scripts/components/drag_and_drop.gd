@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if dragging and target:
-		target.global_position = target.get_global_mouse_position() + offset
+		target.global_position = target.get_global_mouse_position()
 
 
 func _input(event: InputEvent) -> void:
@@ -39,7 +39,6 @@ func _start_dragging() -> void:
 	starting_position = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 98
-	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
 	get_viewport().set_input_as_handled()
 

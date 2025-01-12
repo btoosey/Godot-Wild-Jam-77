@@ -7,7 +7,7 @@ extends Area2D
 @onready var card_skin: Sprite2D = $CardSkin
 
 var dragging := false
-var card_rotation := 0
+var card_orientation := 0
 
 func set_stats(value: TrackCardStats) -> void:
 	stats = value
@@ -19,6 +19,13 @@ func set_stats(value: TrackCardStats) -> void:
 		await ready
 
 	card_skin.region_rect.position = Vector2(stats.skin_coordinates) * Main.CELL_SIZE
+
+
+func rotate_card(deg) -> void:
+	rotate(deg_to_rad(deg))
+	card_orientation += 1
+	if card_orientation == 4:
+		card_orientation = 0
 
 
 func _on_drag_and_drop_drag_started() -> void:

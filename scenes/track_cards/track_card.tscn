@@ -31,6 +31,7 @@ target = NodePath("..")
 [node name="Rotate" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("5_10ipc")
 target = NodePath("..")
+rotation_degrees = 90
 
 [connection signal="drag_started" from="DragAndDrop" to="." method="_on_drag_and_drop_drag_started"]
 [connection signal="dropped" from="DragAndDrop" to="." method="_on_drag_and_drop_dropped"]

@@ -3,6 +3,7 @@ extends Node
 
 @export var enabled: bool = true
 @export var target: Area2D
+@export var rotation_degrees: int
 
 
 func _ready() -> void:
@@ -11,7 +12,8 @@ func _ready() -> void:
 
 
 func _rotate_card() -> void:
-	target.rotate(deg_to_rad(90))
+	target.rotate_card(rotation_degrees)
+
 
 
 func _on_target_input_event(_vieport: Node, event: InputEvent) -> void:
@@ -19,6 +21,10 @@ func _on_target_input_event(_vieport: Node, event: InputEvent) -> void:
 		return
 
 	var dragging_object := get_tree().get_first_node_in_group("dragging")
+
+	if not dragging_object:
+		return
+
 	if not target.dragging and dragging_object:
 		return
 

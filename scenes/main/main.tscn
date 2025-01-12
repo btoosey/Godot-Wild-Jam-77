@@ -35,3 +35,6 @@ camera_bottom_limit = 409
 
 [node name="TrackCard" parent="." instance=ExtResource("4_2t2bp")]
 position = Vector2(287, 191)
+
+[node name="TrackCard2" parent="." instance=ExtResource("4_2t2bp")]
+position = Vector2(341, 197)

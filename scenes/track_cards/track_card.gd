@@ -6,6 +6,8 @@ extends Area2D
 
 @onready var card_skin: Sprite2D = $CardSkin
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
+@onready var circuit_link_1: Marker2D = $CircuitLinks/CircuitLink1
+@onready var circuit_link_2: Marker2D = $CircuitLinks/CircuitLink2
 
 var dragging := false
 var card_orientation := 0
@@ -27,7 +29,10 @@ func set_stats(value: TrackCardStats) -> void:
 	if not is_node_ready():
 		await ready
 
-	card_skin.region_rect.position = Vector2(stats.skin_coordinates) * Main.CELL_SIZE
+	card_skin.region_rect.position = Vector2(stats.skin_coordinates) * Main.TRACK_CARD_SIZE
+
+	circuit_link_1.position = stats.link_1
+	circuit_link_2.position = stats.link_2
 
 
 func reset_after_dragging(starting_position: Vector2, orientation: int) -> void:

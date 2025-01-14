@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bi5wtv5ehcdpi"]
+[gd_scene load_steps=15 format=4 uid="uid://bi5wtv5ehcdpi"]
 
 [ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://sprites/background/background_tile.png" id="1_kwwue"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w04op"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://sprites/background/tile_highlight.png" id="4_wccih"]
 [ext_resource type="Script" path="res://scripts/components/tile_highlighter.gd" id="6_opi45"]
 [ext_resource type="Script" path="res://scripts/components/track_card_mover.gd" id="9_00qry"]
+[ext_resource type="PackedScene" uid="uid://bnmr3eyhrgx1n" path="res://scenes/track_cards/start_finish_card.tscn" id="10_74af6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -37,6 +38,7 @@ tile_set = SubResource("TileSet_bu3tp")
 script = ExtResource("2_ydy7w")
 track_card_grid = NodePath("PlayAreaTrackCardGrid")
 tile_highlighter = NodePath("TileHighlighter")
+metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="BackgroundTiles"]
 tile_set = SubResource("TileSet_riabq")
@@ -72,3 +74,7 @@ camera_bottom_limit = 409
 [node name="TrackCardMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("9_00qry")
 play_areas = [NodePath("../BackgroundTiles")]
+start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i(15, 7), Vector2i(15, 8)])
+
+[node name="StartFinishCard" parent="." instance=ExtResource("10_74af6")]
+position = Vector2(480, 256)

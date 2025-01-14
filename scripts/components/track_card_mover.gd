@@ -2,6 +2,7 @@ class_name TrackCardMover
 extends Node
 
 @export var play_areas: Array[PlayArea]
+@export var start_finish_tiles: Array[Vector2i]
 
 var starting_orientation
 
@@ -68,10 +69,17 @@ func _on_track_card_dropped(starting_position: Vector2, track_card: TrackCard) -
 		_reset_track_card_to_starting_position(track_card, starting_position, starting_orientation)
 		return
 
+
 	var new_area := play_areas[drop_area_index]
 	var new_tile := new_area.get_hovered_tile()
 	var secondary_new_tile = new_tile + track_card.secondary_card_halves[track_card.card_orientation]
-	
+
+	for tile in start_finish_tiles:
+		if new_tile == tile or secondary_new_tile == tile:
+			_reset_track_card_to_starting_position(track_card, starting_position, starting_orientation)
+			return
+
+
 	if play_areas[drop_area_index].track_card_grid.is_tile_occupied(new_tile) or play_areas[drop_area_index].track_card_grid.is_tile_occupied(secondary_new_tile):
 		_reset_track_card_to_starting_position(track_card, starting_position, starting_orientation)
 		return

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnmr3eyhrgx1n"]
+
+[ext_resource type="Texture2D" uid="uid://dgr6kuyswfl75" path="res://sprites/track_cards/start_finish_card.png" id="1_ehe64"]
+
+[node name="StartFinishCard" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ehe64")

@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0ob0"]
 size = Vector2(30, 62)
 
-[node name="TrackCard" type="Area2D"]
+[node name="TrackCard" type="Area2D" groups=["track_cards"]]
 z_index = 1
 script = ExtResource("1_rdguf")
 stats = ExtResource("2_35b40")

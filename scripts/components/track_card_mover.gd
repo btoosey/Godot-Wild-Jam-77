@@ -1,8 +1,9 @@
 class_name TrackCardMover
 extends Node
 
-
 @export var play_areas: Array[PlayArea]
+
+var starting_orientation
 
 
 func _ready() -> void:
@@ -27,11 +28,11 @@ func _set_highlighters(enabled: bool) -> void:
 		play_area.tile_highlighter.enabled = enabled
 
 
-func _reset_track_card_to_starting_position(starting_position: Vector2, track_card: TrackCard) -> void:
+func _reset_track_card_to_starting_position(track_card: TrackCard, starting_position: Vector2, orientation: int) -> void:
 	var i := _get_play_area_for_position(starting_position)
 	var tile := play_areas[i].get_tile_from_global(starting_position)
 
-	track_card.reset_after_dragging(starting_position)
+	track_card.reset_after_dragging(starting_position, orientation)
 	play_areas[i].track_card_grid.add_track_card(tile, track_card)
 
 
@@ -46,35 +47,33 @@ func setup_unit(track_card: TrackCard) -> void:
 	track_card.drag_and_drop.dropped.connect(_on_track_card_dropped.bind(track_card))
 
 
-
 func _on_track_card_drag_started(track_card: TrackCard) -> void:
 	_set_highlighters(true)
+	starting_orientation = track_card.card_orientation
 
 	var i := _get_play_area_for_position(track_card.global_position)
 	if i > -1:
 		var tile := play_areas[i].get_tile_from_global(track_card.global_position)
 		play_areas[i].track_card_grid.remove_track_card(tile)
-
+		play_areas[i].track_card_grid.remove_track_card(tile + track_card.secondary_card_halves[track_card.card_orientation])
 
 
 func _on_track_card_dropped(starting_position: Vector2, track_card: TrackCard) -> void:
 	_set_highlighters(false)
 
-	#var old_area_index := _get_play_area_for_position(starting_position)
-	var drop_area_index := _get_play_area_for_position(track_card.get_global_mouse_position())
+	var drop_area_index := _get_play_area_for_position(track_card.global_position)
+	var secondary_drop_area_index = _get_play_area_for_position(track_card.global_position + (Vector2(track_card.secondary_card_halves[track_card.card_orientation]) * Main.CELL_SIZE))
 
-	#var old_area := play_areas[old_area_index]
-	#var old_tile := old_area.get_tile_from_global(starting_position)
+	if drop_area_index == -1 or secondary_drop_area_index == -1:
+		_reset_track_card_to_starting_position(track_card, starting_position, starting_orientation)
+		return
+
 	var new_area := play_areas[drop_area_index]
 	var new_tile := new_area.get_hovered_tile()
-	#if :
-			#_reset_track_card_to_starting_position(starting_position, track_card)
-			#return
-	if drop_area_index == -1 or play_areas[drop_area_index].track_card_grid.is_tile_occupied(new_tile):
-		_reset_track_card_to_starting_position(starting_position, track_card)
+	var secondary_new_tile = new_tile + track_card.secondary_card_halves[track_card.card_orientation]
+	
+	if play_areas[drop_area_index].track_card_grid.is_tile_occupied(new_tile) or play_areas[drop_area_index].track_card_grid.is_tile_occupied(secondary_new_tile):
+		_reset_track_card_to_starting_position(track_card, starting_position, starting_orientation)
 		return
-		#var old_unit: Unit = new_area.unit_grid.units[new_tile]
-		#new_area.unit_grid.remove_unit(new_tile)
-		#_move_unit(old_unit, old_area, old_tile)
 	else:
 		_move_track_card(track_card, new_area, new_tile)

@@ -20,8 +20,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if dragging and target:
 		target.global_position = target.get_global_mouse_position()
-		target.global_position.x = clamp(target.global_position.x, 0, 944)
-		target.global_position.y = clamp(target.global_position.y, 0, 528)
 
 
 func _input(event: InputEvent) -> void:

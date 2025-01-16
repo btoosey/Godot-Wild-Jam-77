@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrackCardStats" load_steps=2 format=3 uid="uid://ghle5ep5guto"]
+
+[ext_resource type="Script" path="res://data/track_cards/track_card_stats.gd" id="1_j5vri"]
+
+[resource]
+script = ExtResource("1_j5vri")
+gold_cost = 1
+link_1 = Vector2(-16, 0)
+link_2 = Vector2(0, 48)
+skin_coordinates = Vector2i(0, 1)

@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_m86p1")
 gold_cost = 1
+link_1 = Vector2(0, -16)
+link_2 = Vector2(0, 48)
 skin_coordinates = Vector2i(0, 0)

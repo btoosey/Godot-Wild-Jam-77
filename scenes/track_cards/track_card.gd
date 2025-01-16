@@ -8,6 +8,7 @@ extends Area2D
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var circuit_link_1: Marker2D = $CircuitLinks/CircuitLink1
 @onready var circuit_link_2: Marker2D = $CircuitLinks/CircuitLink2
+@onready var circuit_manager: CircuitManager = $"../../CircuitManager"
 
 var dragging := false
 var card_orientation := 0
@@ -50,6 +51,7 @@ func rotate_card(deg) -> void:
 
 func _on_drag_and_drop_drag_started() -> void:
 	dragging = true
+	circuit_manager.remove_from_circuit(self)
 
 
 func _on_drag_and_drop_dropped(_starting_position: Vector2) -> void:

@@ -36,8 +36,10 @@ rotation_degrees = 90
 [node name="CircuitLinks" type="Node2D" parent="."]
 
 [node name="CircuitLink1" type="Marker2D" parent="CircuitLinks"]
+position = Vector2(-16, 0)
 
 [node name="CircuitLink2" type="Marker2D" parent="CircuitLinks"]
+position = Vector2(16, 32)
 
 [connection signal="drag_started" from="DragAndDrop" to="." method="_on_drag_and_drop_drag_started"]
 [connection signal="dropped" from="DragAndDrop" to="." method="_on_drag_and_drop_dropped"]

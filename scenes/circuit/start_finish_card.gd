@@ -1,5 +1,5 @@
 class_name StartFinishCard
 extends Node2D
 
-@onready var link_point: Marker2D = $LinkPoint
-@onready var link_point_2: Marker2D = $LinkPoint2
+@onready var circuit_link_1: Marker2D = $CircuitLink1
+@onready var circuit_link_2: Marker2D = $CircuitLink2

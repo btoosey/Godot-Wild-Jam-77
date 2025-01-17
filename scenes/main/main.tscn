@@ -1,12 +1,12 @@
-[gd_scene load_steps=24 format=4 uid="uid://bi5wtv5ehcdpi"]
+[gd_scene load_steps=26 format=4 uid="uid://bi5wtv5ehcdpi"]
 
-[ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://sprites/background/background_tile.png" id="1_kwwue"]
+[ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://assets/sprites/background/background_tile.png" id="1_kwwue"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w04op"]
 [ext_resource type="Script" path="res://scripts/components/play_area.gd" id="2_ydy7w"]
 [ext_resource type="Script" path="res://scripts/camera/components/camera_drag.gd" id="3_vw24h"]
 [ext_resource type="Script" path="res://scripts/components/track_card_grid.gd" id="3_wsrml"]
 [ext_resource type="PackedScene" uid="uid://d33hx60uijy1x" path="res://scenes/track_cards/track_card.tscn" id="4_2t2bp"]
-[ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://sprites/background/tile_highlight.png" id="4_wccih"]
+[ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://assets/sprites/background/tile_highlight.png" id="4_wccih"]
 [ext_resource type="Script" path="res://scripts/components/tile_highlighter.gd" id="6_opi45"]
 [ext_resource type="Resource" uid="uid://gpiwcdg8mi2u" path="res://data/track_cards/track_card_07.tres" id="8_2y0o6"]
 [ext_resource type="Script" path="res://scripts/components/track_card_mover.gd" id="9_00qry"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://cle840njjjoch" path="res://data/track_cards/track_card_01.tres" id="12_qfttw"]
 [ext_resource type="Resource" uid="uid://5qwj0mingj02" path="res://data/track_cards/track_card_02.tres" id="13_aap70"]
 [ext_resource type="Resource" uid="uid://dw3esgn25p234" path="res://data/track_cards/track_card_03.tres" id="14_whyj4"]
+[ext_resource type="PackedScene" uid="uid://bsg61thypf78s" path="res://scenes/ui/inventory/track_card_card/track_card_inventory_card.tscn" id="20_iamnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -37,6 +38,13 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_riabq"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7gplt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyhe8"]
+bg_color = Color(0, 0, 0, 0.686275)
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w04op")
@@ -118,3 +126,92 @@ track_card_mover = NodePath("../TrackCardMover")
 [node name="StartFinishCard" parent="CircuitManager" instance=ExtResource("10_74af6")]
 position = Vector2(480, 256)
 script = ExtResource("11_0v8u6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 524.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iyhe8")
+
+[node name="InventoryUI" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -45.5
+offset_right = 232.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Straights" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="StraightsLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/Straights"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STRAIGHTS"
+
+[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/Straights"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="SingleCorners" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="SingleCornersLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/SingleCorners"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SINGLE CORNERS"
+
+[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/SingleCorners"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton3" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton4" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton5" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="DoubleCorners" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="DoubleCornersLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "DOUBLE CORNERS"
+
+[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+
+[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2

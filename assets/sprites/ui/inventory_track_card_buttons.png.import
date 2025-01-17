@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgr6kuyswfl75"
-path="res://.godot/imported/start_finish_card.png-7adaf422bbf1bf6a2975231ccbf9f026.ctex"
+uid="uid://enq33xkol8pd"
+path="res://.godot/imported/inventory_track_card_buttons.png-36aacde9af136e1cb8d2c97ec2e3dcf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/track_cards/start_finish_card.png"
-dest_files=["res://.godot/imported/start_finish_card.png-7adaf422bbf1bf6a2975231ccbf9f026.ctex"]
+source_file="res://assets/sprites/ui/inventory_track_card_buttons.png"
+dest_files=["res://.godot/imported/inventory_track_card_buttons.png-36aacde9af136e1cb8d2c97ec2e3dcf8.ctex"]
 
 [params]
 

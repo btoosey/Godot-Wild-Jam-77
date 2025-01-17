@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsg61thypf78s"]
+
+[ext_resource type="Texture2D" uid="uid://enq33xkol8pd" path="res://assets/sprites/ui/inventory_track_card_buttons.png" id="1_gc1hu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqrk2"]
+atlas = ExtResource("1_gc1hu")
+region = Rect2(0, 0, 32, 64)
+
+[node name="InventoryTrackCardButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_pqrk2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 46.0
+offset_right = 61.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "10"

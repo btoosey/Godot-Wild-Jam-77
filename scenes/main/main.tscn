@@ -1,12 +1,11 @@
-[gd_scene load_steps=24 format=4 uid="uid://bi5wtv5ehcdpi"]
+[gd_scene load_steps=48 format=4 uid="uid://bi5wtv5ehcdpi"]
 
-[ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://sprites/background/background_tile.png" id="1_kwwue"]
+[ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://assets/sprites/background/background_tile.png" id="1_kwwue"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w04op"]
 [ext_resource type="Script" path="res://scripts/components/play_area.gd" id="2_ydy7w"]
 [ext_resource type="Script" path="res://scripts/camera/components/camera_drag.gd" id="3_vw24h"]
 [ext_resource type="Script" path="res://scripts/components/track_card_grid.gd" id="3_wsrml"]
-[ext_resource type="PackedScene" uid="uid://d33hx60uijy1x" path="res://scenes/track_cards/track_card.tscn" id="4_2t2bp"]
-[ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://sprites/background/tile_highlight.png" id="4_wccih"]
+[ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://assets/sprites/background/tile_highlight.png" id="4_wccih"]
 [ext_resource type="Script" path="res://scripts/components/tile_highlighter.gd" id="6_opi45"]
 [ext_resource type="Resource" uid="uid://gpiwcdg8mi2u" path="res://data/track_cards/track_card_07.tres" id="8_2y0o6"]
 [ext_resource type="Script" path="res://scripts/components/track_card_mover.gd" id="9_00qry"]
@@ -19,6 +18,12 @@
 [ext_resource type="Resource" uid="uid://cle840njjjoch" path="res://data/track_cards/track_card_01.tres" id="12_qfttw"]
 [ext_resource type="Resource" uid="uid://5qwj0mingj02" path="res://data/track_cards/track_card_02.tres" id="13_aap70"]
 [ext_resource type="Resource" uid="uid://dw3esgn25p234" path="res://data/track_cards/track_card_03.tres" id="14_whyj4"]
+[ext_resource type="Script" path="res://scripts/components/track_card_spawner.gd" id="17_bodr0"]
+[ext_resource type="PackedScene" uid="uid://bsg61thypf78s" path="res://scenes/ui/inventory/track_card_card/inventory_track_card_button.tscn" id="20_iamnu"]
+[ext_resource type="Resource" uid="uid://dre4yak4ml3ug" path="res://data/track_cards/track_card_05.tres" id="22_7e0gq"]
+[ext_resource type="Texture2D" uid="uid://enq33xkol8pd" path="res://assets/sprites/ui/inventory_track_card_buttons.png" id="22_huq50"]
+[ext_resource type="Resource" uid="uid://bcjeisl15syk3" path="res://data/track_cards/track_card_09.tres" id="23_7jii3"]
+[ext_resource type="Texture2D" uid="uid://48umeqewrtoc" path="res://assets/sprites/ui/inventory_track_card_buttons_disabled.png" id="23_k01bu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -37,6 +42,103 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_riabq"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7gplt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyhe8"]
+bg_color = Color(0, 0, 0, 0.686275)
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liuje"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpt3c"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcmb0"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttw7"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua7pf"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28x8u"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f270s"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmh4s"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1at6"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn7rf"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7if8d"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vawaa"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq2ko"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh6re"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xrj3"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khmpn"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmw12"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7q3w"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w04op")
@@ -62,38 +164,6 @@ enabled = false
 play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 
-[node name="TrackCard" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(287, 191)
-stats = ExtResource("8_2y0o6")
-
-[node name="TrackCard2" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(341, 197)
-stats = ExtResource("14_whyj4")
-
-[node name="TrackCard3" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(412, 196)
-stats = ExtResource("9_xp20h")
-
-[node name="TrackCard4" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(346, 268)
-stats = ExtResource("10_k2q4k")
-
-[node name="TrackCard5" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(402, 280)
-stats = ExtResource("11_ogwf2")
-
-[node name="TrackCard6" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(285, 275)
-stats = ExtResource("12_qfttw")
-
-[node name="TrackCard7" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(573, 194)
-stats = ExtResource("13_aap70")
-
-[node name="TrackCard8" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(644, 241)
-stats = ExtResource("14_whyj4")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
 zoom = Vector2(2, 2)
@@ -106,15 +176,137 @@ camera_right_limit = 720
 camera_top_limit = 135
 camera_bottom_limit = 409
 
-[node name="TrackCardMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
-script = ExtResource("9_00qry")
-play_areas = [NodePath("../BackgroundTiles")]
-start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i(15, 7), Vector2i(15, 8)])
-
 [node name="CircuitManager" type="Node2D" parent="." node_paths=PackedStringArray("track_card_mover")]
+unique_name_in_owner = true
 script = ExtResource("11_2agpc")
 track_card_mover = NodePath("../TrackCardMover")
 
 [node name="StartFinishCard" parent="CircuitManager" instance=ExtResource("10_74af6")]
 position = Vector2(480, 256)
 script = ExtResource("11_0v8u6")
+
+[node name="TrackCardMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
+script = ExtResource("9_00qry")
+play_areas = [NodePath("../BackgroundTiles")]
+start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i(15, 7), Vector2i(15, 8)])
+
+[node name="TrackCardSpawner" type="Node" parent="." node_paths=PackedStringArray("play_area")]
+unique_name_in_owner = true
+script = ExtResource("17_bodr0")
+play_area = NodePath("../BackgroundTiles")
+
+[node name="InventoryCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="InventoryCanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 524.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iyhe8")
+
+[node name="InventoryUI" type="HBoxContainer" parent="InventoryCanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -45.5
+offset_right = 232.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Straights" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="StraightsLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STRAIGHTS"
+
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_liuje")
+texture_disabled = SubResource("AtlasTexture_hpt3c")
+track_card_stats = ExtResource("12_qfttw")
+
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_lcmb0")
+texture_disabled = SubResource("AtlasTexture_yttw7")
+track_card_stats = ExtResource("13_aap70")
+
+[node name="SingleCorners" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="SingleCornersLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SINGLE CORNERS"
+
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ua7pf")
+texture_disabled = SubResource("AtlasTexture_28x8u")
+track_card_stats = ExtResource("14_whyj4")
+
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_f270s")
+texture_disabled = SubResource("AtlasTexture_rmh4s")
+track_card_stats = ExtResource("11_ogwf2")
+
+[node name="InventoryTrackCardButton3" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_w1at6")
+texture_disabled = SubResource("AtlasTexture_yn7rf")
+track_card_stats = ExtResource("22_7e0gq")
+
+[node name="InventoryTrackCardButton4" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7if8d")
+texture_disabled = SubResource("AtlasTexture_vawaa")
+track_card_stats = ExtResource("9_xp20h")
+
+[node name="InventoryTrackCardButton5" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dq2ko")
+texture_disabled = SubResource("AtlasTexture_mh6re")
+track_card_stats = ExtResource("8_2y0o6")
+
+[node name="DoubleCorners" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
+layout_mode = 2
+
+[node name="DoubleCornersLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "DOUBLE CORNERS"
+
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7xrj3")
+texture_disabled = SubResource("AtlasTexture_khmpn")
+track_card_stats = ExtResource("10_k2q4k")
+
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_bmw12")
+texture_disabled = SubResource("AtlasTexture_p7q3w")
+track_card_stats = ExtResource("23_7jii3")

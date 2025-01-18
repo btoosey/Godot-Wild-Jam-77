@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d33hx60uijy1x"]
 
 [ext_resource type="Script" path="res://scenes/track_cards/track_card.gd" id="1_rdguf"]
-[ext_resource type="Texture2D" uid="uid://cfqi6xmb177dp" path="res://sprites/track_cards/track_cards_atlas.png" id="1_yirfu"]
+[ext_resource type="Texture2D" uid="uid://cfqi6xmb177dp" path="res://assets/sprites/track_cards/track_cards_atlas.png" id="1_yirfu"]
 [ext_resource type="Resource" uid="uid://bcjeisl15syk3" path="res://data/track_cards/track_card_09.tres" id="2_rvcjk"]
 [ext_resource type="Script" path="res://scripts/components/drag_and_drop.gd" id="4_gb8qg"]
 [ext_resource type="Script" path="res://scripts/components/rotate.gd" id="5_10ipc"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfqi6xmb177dp"
-path="res://.godot/imported/track_cards_atlas.png-be15c56bbed8a207b4c7220096a45f7d.ctex"
+uid="uid://c34hh6lrbgyr8"
+path="res://.godot/imported/tile_highlight.png-f7795f3ca370c55bfc6010aa43d4fbac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/track_cards/track_cards_atlas.png"
-dest_files=["res://.godot/imported/track_cards_atlas.png-be15c56bbed8a207b4c7220096a45f7d.ctex"]
+source_file="res://assets/sprites/background/tile_highlight.png"
+dest_files=["res://.godot/imported/tile_highlight.png-f7795f3ca370c55bfc6010aa43d4fbac.ctex"]
 
 [params]
 

@@ -14,6 +14,10 @@ func _ready() -> void:
 	circuit_cards.append(start_finish_card)
 
 
+func setup_track_card(track_card: TrackCard) -> void:
+	track_card.drag_and_drop.drag_started.connect(remove_from_circuit.bind(track_card))
+
+
 func remove_from_circuit(card: TrackCard) -> void:
 	if !circuit_cards.has(card):
 		return

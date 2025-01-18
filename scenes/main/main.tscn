@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bi5wtv5ehcdpi"]
+[gd_scene load_steps=53 format=4 uid="uid://bi5wtv5ehcdpi"]
 
 [ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://assets/sprites/background/background_tile.png" id="1_kwwue"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w04op"]
@@ -24,6 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://enq33xkol8pd" path="res://assets/sprites/ui/inventory_track_card_buttons.png" id="22_huq50"]
 [ext_resource type="Resource" uid="uid://bcjeisl15syk3" path="res://data/track_cards/track_card_09.tres" id="23_7jii3"]
 [ext_resource type="Texture2D" uid="uid://48umeqewrtoc" path="res://assets/sprites/ui/inventory_track_card_buttons_disabled.png" id="23_k01bu"]
+[ext_resource type="Script" path="res://scripts/components/game_state_machine/game_state_machine.gd" id="25_dwwi5"]
+[ext_resource type="Script" path="res://scripts/components/game_state_machine/game_states/game_start_state.gd" id="26_d1try"]
+[ext_resource type="Script" path="res://scripts/components/game_state_machine/game_states/game_build_state.gd" id="27_t23bk"]
+[ext_resource type="Script" path="res://scripts/components/game_state_machine/game_states/game_roll_state.gd" id="28_ub4at"]
+[ext_resource type="Script" path="res://scripts/components/game_state_machine/game_states/game_race_state.gd" id="29_7bcvd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -194,6 +199,25 @@ start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i
 unique_name_in_owner = true
 script = ExtResource("17_bodr0")
 play_area = NodePath("../BackgroundTiles")
+
+[node name="GameStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("25_dwwi5")
+initial_state = NodePath("GameStartState")
+
+[node name="GameStartState" type="Node" parent="GameStateMachine"]
+script = ExtResource("26_d1try")
+
+[node name="GameBuildState" type="Node" parent="GameStateMachine"]
+script = ExtResource("27_t23bk")
+state = 1
+
+[node name="GameRollState" type="Node" parent="GameStateMachine"]
+script = ExtResource("28_ub4at")
+state = 2
+
+[node name="GameRaceState" type="Node" parent="GameStateMachine"]
+script = ExtResource("29_7bcvd")
+state = 3
 
 [node name="InventoryCanvasLayer" type="CanvasLayer" parent="."]
 

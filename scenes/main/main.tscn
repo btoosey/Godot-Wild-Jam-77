@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bi5wtv5ehcdpi"]
+[gd_scene load_steps=48 format=4 uid="uid://bi5wtv5ehcdpi"]
 
 [ext_resource type="Texture2D" uid="uid://brtr1uvx3kqqj" path="res://assets/sprites/background/background_tile.png" id="1_kwwue"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w04op"]
@@ -19,7 +19,11 @@
 [ext_resource type="Resource" uid="uid://cle840njjjoch" path="res://data/track_cards/track_card_01.tres" id="12_qfttw"]
 [ext_resource type="Resource" uid="uid://5qwj0mingj02" path="res://data/track_cards/track_card_02.tres" id="13_aap70"]
 [ext_resource type="Resource" uid="uid://dw3esgn25p234" path="res://data/track_cards/track_card_03.tres" id="14_whyj4"]
-[ext_resource type="PackedScene" uid="uid://bsg61thypf78s" path="res://scenes/ui/inventory/track_card_card/track_card_inventory_card.tscn" id="20_iamnu"]
+[ext_resource type="PackedScene" uid="uid://bsg61thypf78s" path="res://scenes/ui/inventory/track_card_card/inventory_track_card_button.tscn" id="20_iamnu"]
+[ext_resource type="Resource" uid="uid://dre4yak4ml3ug" path="res://data/track_cards/track_card_05.tres" id="22_7e0gq"]
+[ext_resource type="Texture2D" uid="uid://enq33xkol8pd" path="res://assets/sprites/ui/inventory_track_card_buttons.png" id="22_huq50"]
+[ext_resource type="Resource" uid="uid://bcjeisl15syk3" path="res://data/track_cards/track_card_09.tres" id="23_7jii3"]
+[ext_resource type="Texture2D" uid="uid://48umeqewrtoc" path="res://assets/sprites/ui/inventory_track_card_buttons_disabled.png" id="23_k01bu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5suh"]
 texture = ExtResource("1_kwwue")
@@ -45,6 +49,96 @@ border_width_top = 4
 border_width_right = 4
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liuje"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpt3c"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcmb0"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttw7"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua7pf"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28x8u"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f270s"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmh4s"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1at6"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn7rf"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7if8d"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vawaa"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq2ko"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh6re"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xrj3"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khmpn"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmw12"]
+resource_local_to_scene = true
+atlas = ExtResource("22_huq50")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7q3w"]
+resource_local_to_scene = true
+atlas = ExtResource("23_k01bu")
+region = Rect2(0, 0, 32, 64)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w04op")
@@ -127,9 +221,9 @@ track_card_mover = NodePath("../TrackCardMover")
 position = Vector2(480, 256)
 script = ExtResource("11_0v8u6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="InventoryCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="InventoryCanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -138,7 +232,7 @@ offset_right = 524.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iyhe8")
 
-[node name="InventoryUI" type="HBoxContainer" parent="CanvasLayer/Panel"]
+[node name="InventoryUI" type="HBoxContainer" parent="InventoryCanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,65 +247,92 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Straights" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
+[node name="Straights" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
 layout_mode = 2
 
-[node name="StraightsLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/Straights"]
+[node name="StraightsLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "STRAIGHTS"
 
-[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/Straights"]
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_liuje")
+texture_disabled = SubResource("AtlasTexture_hpt3c")
+track_card_stats = ExtResource("12_qfttw")
+
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_lcmb0")
+texture_disabled = SubResource("AtlasTexture_yttw7")
+track_card_stats = ExtResource("13_aap70")
+
+[node name="SingleCorners" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
 layout_mode = 2
 
-[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/Straights/Cards" instance=ExtResource("20_iamnu")]
-layout_mode = 2
-
-[node name="SingleCorners" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
-layout_mode = 2
-
-[node name="SingleCornersLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/SingleCorners"]
+[node name="SingleCornersLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "SINGLE CORNERS"
 
-[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/SingleCorners"]
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ua7pf")
+texture_disabled = SubResource("AtlasTexture_28x8u")
+track_card_stats = ExtResource("14_whyj4")
+
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_f270s")
+texture_disabled = SubResource("AtlasTexture_rmh4s")
+track_card_stats = ExtResource("11_ogwf2")
+
+[node name="InventoryTrackCardButton3" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_w1at6")
+texture_disabled = SubResource("AtlasTexture_yn7rf")
+track_card_stats = ExtResource("22_7e0gq")
+
+[node name="InventoryTrackCardButton4" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7if8d")
+texture_disabled = SubResource("AtlasTexture_vawaa")
+track_card_stats = ExtResource("9_xp20h")
+
+[node name="InventoryTrackCardButton5" parent="InventoryCanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_dq2ko")
+texture_disabled = SubResource("AtlasTexture_mh6re")
+track_card_stats = ExtResource("8_2y0o6")
+
+[node name="DoubleCorners" type="VBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI"]
 layout_mode = 2
 
-[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
-layout_mode = 2
-
-[node name="InventoryTrackCardButton3" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
-layout_mode = 2
-
-[node name="InventoryTrackCardButton4" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
-layout_mode = 2
-
-[node name="InventoryTrackCardButton5" parent="CanvasLayer/Panel/InventoryUI/SingleCorners/Cards" instance=ExtResource("20_iamnu")]
-layout_mode = 2
-
-[node name="DoubleCorners" type="VBoxContainer" parent="CanvasLayer/Panel/InventoryUI"]
-layout_mode = 2
-
-[node name="DoubleCornersLabel" type="Label" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners"]
+[node name="DoubleCornersLabel" type="Label" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "DOUBLE CORNERS"
 
-[node name="Cards" type="HBoxContainer" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners"]
+[node name="Cards" type="HBoxContainer" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="InventoryTrackCardButton" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+[node name="InventoryTrackCardButton" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7xrj3")
+texture_disabled = SubResource("AtlasTexture_khmpn")
+track_card_stats = ExtResource("10_k2q4k")
 
-[node name="InventoryTrackCardButton2" parent="CanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
+[node name="InventoryTrackCardButton2" parent="InventoryCanvasLayer/Panel/InventoryUI/DoubleCorners/Cards" instance=ExtResource("20_iamnu")]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_bmw12")
+texture_disabled = SubResource("AtlasTexture_p7q3w")
+track_card_stats = ExtResource("23_7jii3")

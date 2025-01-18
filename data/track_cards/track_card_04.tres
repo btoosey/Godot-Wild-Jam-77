@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_5dkti")
 gold_cost = 1
+card_type = 3
 link_1 = Vector2(-16, 32)
 link_2 = Vector2(0, 48)
 skin_coordinates = Vector2i(3, 0)

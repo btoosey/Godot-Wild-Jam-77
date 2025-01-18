@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://scripts/components/play_area.gd" id="2_ydy7w"]
 [ext_resource type="Script" path="res://scripts/camera/components/camera_drag.gd" id="3_vw24h"]
 [ext_resource type="Script" path="res://scripts/components/track_card_grid.gd" id="3_wsrml"]
-[ext_resource type="PackedScene" uid="uid://d33hx60uijy1x" path="res://scenes/track_cards/track_card.tscn" id="4_2t2bp"]
 [ext_resource type="Texture2D" uid="uid://c34hh6lrbgyr8" path="res://assets/sprites/background/tile_highlight.png" id="4_wccih"]
 [ext_resource type="Script" path="res://scripts/components/tile_highlighter.gd" id="6_opi45"]
 [ext_resource type="Resource" uid="uid://gpiwcdg8mi2u" path="res://data/track_cards/track_card_07.tres" id="8_2y0o6"]
@@ -19,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://cle840njjjoch" path="res://data/track_cards/track_card_01.tres" id="12_qfttw"]
 [ext_resource type="Resource" uid="uid://5qwj0mingj02" path="res://data/track_cards/track_card_02.tres" id="13_aap70"]
 [ext_resource type="Resource" uid="uid://dw3esgn25p234" path="res://data/track_cards/track_card_03.tres" id="14_whyj4"]
+[ext_resource type="Script" path="res://scripts/components/track_card_spawner.gd" id="17_bodr0"]
 [ext_resource type="PackedScene" uid="uid://bsg61thypf78s" path="res://scenes/ui/inventory/track_card_card/inventory_track_card_button.tscn" id="20_iamnu"]
 [ext_resource type="Resource" uid="uid://dre4yak4ml3ug" path="res://data/track_cards/track_card_05.tres" id="22_7e0gq"]
 [ext_resource type="Texture2D" uid="uid://enq33xkol8pd" path="res://assets/sprites/ui/inventory_track_card_buttons.png" id="22_huq50"]
@@ -164,38 +164,6 @@ enabled = false
 play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 
-[node name="TrackCard" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(287, 191)
-stats = ExtResource("8_2y0o6")
-
-[node name="TrackCard2" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(341, 197)
-stats = ExtResource("14_whyj4")
-
-[node name="TrackCard3" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(412, 196)
-stats = ExtResource("9_xp20h")
-
-[node name="TrackCard4" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(346, 268)
-stats = ExtResource("10_k2q4k")
-
-[node name="TrackCard5" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(402, 280)
-stats = ExtResource("11_ogwf2")
-
-[node name="TrackCard6" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(285, 275)
-stats = ExtResource("12_qfttw")
-
-[node name="TrackCard7" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(573, 194)
-stats = ExtResource("13_aap70")
-
-[node name="TrackCard8" parent="BackgroundTiles" instance=ExtResource("4_2t2bp")]
-position = Vector2(644, 241)
-stats = ExtResource("14_whyj4")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
 zoom = Vector2(2, 2)
@@ -208,18 +176,24 @@ camera_right_limit = 720
 camera_top_limit = 135
 camera_bottom_limit = 409
 
-[node name="TrackCardMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
-script = ExtResource("9_00qry")
-play_areas = [NodePath("../BackgroundTiles")]
-start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i(15, 7), Vector2i(15, 8)])
-
 [node name="CircuitManager" type="Node2D" parent="." node_paths=PackedStringArray("track_card_mover")]
+unique_name_in_owner = true
 script = ExtResource("11_2agpc")
 track_card_mover = NodePath("../TrackCardMover")
 
 [node name="StartFinishCard" parent="CircuitManager" instance=ExtResource("10_74af6")]
 position = Vector2(480, 256)
 script = ExtResource("11_0v8u6")
+
+[node name="TrackCardMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
+script = ExtResource("9_00qry")
+play_areas = [NodePath("../BackgroundTiles")]
+start_finish_tiles = Array[Vector2i]([Vector2i(14, 7), Vector2i(14, 8), Vector2i(15, 7), Vector2i(15, 8)])
+
+[node name="TrackCardSpawner" type="Node" parent="." node_paths=PackedStringArray("play_area")]
+unique_name_in_owner = true
+script = ExtResource("17_bodr0")
+play_area = NodePath("../BackgroundTiles")
 
 [node name="InventoryCanvasLayer" type="CanvasLayer" parent="."]
 

@@ -12,7 +12,7 @@ var starting_orientation
 func _ready() -> void:
 	var track_cards := get_tree().get_nodes_in_group("track_cards")
 	for track_card: TrackCard in track_cards:
-		setup_unit(track_card)
+		setup_track_card(track_card)
 
 
 func _get_play_area_for_position(global: Vector2) -> int:
@@ -45,7 +45,7 @@ func _move_track_card(track_card: TrackCard, play_area: PlayArea, tile: Vector2i
 	track_card.reparent(play_area.track_card_grid)
 
 
-func setup_unit(track_card: TrackCard) -> void:
+func setup_track_card(track_card: TrackCard) -> void:
 	track_card.drag_and_drop.drag_started.connect(_on_track_card_drag_started.bind(track_card))
 	track_card.drag_and_drop.dropped.connect(_on_track_card_dropped.bind(track_card))
 
